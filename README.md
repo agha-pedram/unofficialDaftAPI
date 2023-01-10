@@ -1,6 +1,6 @@
 # unofficial Daft API
 
-Deployed on AWS cloud, test it here: http://daftapi-env.eba-vjsejp3f.eu-west-1.elasticbeanstalk.com/api/scrape?county=DubLin
+Deployed on AWS cloud, test it here: http://daftapi-env.eba-vjsejp3f.eu-west-1.elasticbeanstalk.com
 
 ### Endpoints:
 /api/scrape?county={countyName}
