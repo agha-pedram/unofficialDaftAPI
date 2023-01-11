@@ -47,7 +47,7 @@ app.get('/api/scrape', (reqAPI, resAPI) => {
                 cardElement = title.querySelector('div[data-testid=title-block]');
 
                 priceElement = cardElement.querySelector('div[data-testid=price]')
-                // record.price = parseInt(priceElement.rawText.replace(/[^0-9]/g, ''));
+                record.price = parseInt(priceElement.rawText.replace(/[^0-9]/g, ''));
                 record.price = priceElement.rawText
 
                 addressElement = cardElement.querySelector('p[data-testid=address]')
@@ -65,7 +65,7 @@ app.get('/api/scrape', (reqAPI, resAPI) => {
 
                 areaElement = cardElement.querySelector('p[data-testid=floor-area]')
                 if (areaElement) {
-                    // record.area = parseInt(areaElement.rawText.replace(/[^0-9]/g, ''))
+                    record.area = parseInt(areaElement.rawText.replace(/[^0-9]/g, ''))
                     record.area = areaElement.rawText
                 }
 
