@@ -56,6 +56,7 @@ app.get('/api/scrape', (reqAPI, resAPI) => {
                 if (addressElement) {
                     record.address = addressElement.rawText
                 };
+                
 
                 bedElement = cardElement.querySelector('[data-testid=beds]')
                 if (bedElement) {
