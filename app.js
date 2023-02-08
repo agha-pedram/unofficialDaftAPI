@@ -44,37 +44,41 @@ app.get('/api/scrape', (reqAPI, resAPI) => {
 
                 record.id = title.getAttribute('data-testid').split('-')[1]
                 record.link = 'https://www.daft.ie' + title.getElementsByTagName('a')[0].getAttribute('href')
-                cardElement = title.querySelector('div[data-testid=title-block]');
+                cardElement = title.querySelector('[data-testid=title-block]');
 
-                priceElement = cardElement.querySelector('div[data-testid=price]')
-                record.price = parseInt(priceElement.rawText.replace(/[^0-9]/g, ''));
-                // record.price = priceElement.rawText
+                priceElement = cardElement.querySelector('[data-testid=price]')
+                if (priceElement) {
+                    record.price = parseInt(priceElement.rawText.replace(/[^0-9]/g, ''));
+                    // record.price = priceElement.rawText
+                };
 
-                addressElement = cardElement.querySelector('p[data-testid=address]')
-                record.address = addressElement.rawText
+                addressElement = cardElement.querySelector('[data-testid=address]')
+                if (addressElement) {
+                    record.address = addressElement.rawText
+                };
 
-                bedElement = cardElement.querySelector('p[data-testid=beds]')
+                bedElement = cardElement.querySelector('[data-testid=beds]')
                 if (bedElement) {
                     record.bed = parseInt(bedElement.rawText.replace(/[^0-9]/g, ''))
                 };
 
-                bathElement = cardElement.querySelector('p[data-testid=baths]')
+                bathElement = cardElement.querySelector('[data-testid=baths]')
                 if (bathElement) {
                     record.bath = parseInt(bathElement.rawText.replace(/[^0-9]/g, ''))
                 };
 
-                areaElement = cardElement.querySelector('p[data-testid=floor-area]')
+                areaElement = cardElement.querySelector('[data-testid=floor-area]')
                 if (areaElement) {
                     record.area = parseInt(areaElement.rawText.replace(/[^0-9]/g, ''))
                     // record.area = areaElement.rawText
                 }
 
-                typeElement = cardElement.querySelector('p[data-testid=property-type]')
+                typeElement = cardElement.querySelector('[data-testid=property-type]')
                 if (typeElement) {
                     record.type = typeElement.rawText
                 }
 
-                berElement = cardElement.querySelector('img[data-testid=ber-image]');
+                berElement = cardElement.querySelector('[data-testid=ber-image]');
                 if (berElement) {
                     record.ber = berElement.getAttribute('src').split('/').at(-1).split('.svg')[0]
                 }
